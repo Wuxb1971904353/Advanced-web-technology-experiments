@@ -1,13 +1,11 @@
 package com.itheima.pojo;
 
-
 public class CCourse {
 
   private int id;
   private String name;
   private String hours;
   private String schools;
-
 
   public long getId() {
     return id;
