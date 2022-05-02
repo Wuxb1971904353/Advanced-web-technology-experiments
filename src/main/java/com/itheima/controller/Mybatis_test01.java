@@ -21,7 +21,7 @@ public class Mybatis_test01 {
     public List<CCourse> getSchoolsCourse(){
         SqlSession sqlSession= MyBatisUtils.getSession();
         IStudentMapper courseDao=sqlSession.getMapper(IStudentMapper.class);
-        List<CCourse> allCourse=courseDao.getSchoolScourse();
+        List<CCourse> allCourse=courseDao.getSchoolsCourse();
         sqlSession.close();
         return allCourse;
     }
@@ -58,12 +58,12 @@ public class Mybatis_test01 {
         for (int i = 0; i < g.getSchoolsCourse().size(); i++) {
             System.out.println(g.getSchoolsCourse().get(i).toString());
         }
-        System.out.println("将 id=4 这⻔课程的课时数修改为 32+8=40");
-        System.out.println(g.updateHours());
-        System.out.println("插⼊⼀条新的课程记录： names='⼤数据存储'，hours=32，schools =1");
-        System.out.println(g.insertCourse());
+//        System.out.println("将 id=4 这⻔课程的课时数修改为 32+8=40");
+//        System.out.println(g.updateHours());
+//        System.out.println("插⼊⼀条新的课程记录： names='⼤数据存储'，hours=32，schools =1");
+//        System.out.println(g.insertCourse());
         System.out.println("输出所有的学院开设的课程信息:");
-        for (int i = 0; i < g.getSchoolsCourse().size(); i++) {
+        for (int i = 0; i < g.getAllSchool().size(); i++) {
             System.out.println(g.getAllSchool().get(i).toString());
         }
     }
