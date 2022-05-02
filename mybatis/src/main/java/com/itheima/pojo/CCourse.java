@@ -1,13 +1,11 @@
 package com.itheima.pojo;
 
-
 public class CCourse {
 
   private int id;
   private String name;
   private String hours;
-  private String schools;
-
+  private String school_name;
 
   public long getId() {
     return id;
@@ -37,11 +35,11 @@ public class CCourse {
 
 
   public String getSchools() {
-    return schools;
+    return school_name;
   }
 
   public void setSchools(String schools) {
-    this.schools = schools;
+    this.school_name = schools;
   }
 
   @Override
@@ -50,7 +48,7 @@ public class CCourse {
             "id=" + id +
             ", name='" + name + '\'' +
             ", hours='" + hours + '\'' +
-            ", schools='" + schools + '\'' +
+            ", schools='" + school_name + '\'' +
             '}';
   }
 }
