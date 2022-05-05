@@ -147,7 +147,7 @@ export default {
         name: '1',
         hours: '1',
         school_name: '1',
-        imgUrl:'1',
+        imgUrl:'',
         isEdit:false,
       }],
       course:{
@@ -171,7 +171,8 @@ export default {
       name:'',
       hours:'',
       imgUrl: '',
-      fileList:[{url:''}]
+      fileList:[{url:''}],
+      editFlag:''
     }
   },
   methods: {
@@ -186,11 +187,27 @@ export default {
           });
     },
     deleteRow(scope, rows) {
-      console.log(scope.row)
-      rows.splice(scope.$index, 1);
-      axios.get("http://localhost:9000/deleteCourse/",{params:{id:scope.row.id}}).then(res=>{
-        console.log(res)
-      })
+      this.$confirm('此操作将永久删除该课程, 是否继续?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(() => {
+        this.$message({
+          type: 'success',
+          message: '删除成功!'
+        });
+        console.log(scope.row)
+        rows.splice(scope.$index, 1);
+        axios.get("http://localhost:9000/deleteCourse/",{params:{id:scope.row.id}}).then(res=>{
+          console.log(res)
+        })
+      }).catch(() => {
+        this.$message({
+          type: 'info',
+          message: '已取消删除'
+        });
+      });
+
     },
     addCourse(){
       let id=0
@@ -202,6 +219,13 @@ export default {
       }
       if (id==0){
         id=this.tableData.length+1
+      }
+      for (let i=0;i<this.tableData.length;i++){
+        if(this.name === this.tableData[i].name){
+          alert("课程名字不要一样，ok？");
+          console.log("名字不要一样，好吧")
+          return;
+        }
       }
       axios.get("http://localhost:9000/addCourse",
           {params:{id:id,name:this.name,hours:this.hours,schools:this.value,imgUrl:this.imgUrl}}).then(res=>{
@@ -225,7 +249,10 @@ export default {
       this.value=''
     },
     Edit(index){
-      this.fileList[0].url=this.tableData[index].imgUrl
+      this.editFlag = this.tableData[index].name
+      if (this.tableData[index].imgUrl!==''){
+        this.fileList[0].url=this.tableData[index].imgUrl
+      }
       this.tableData[index].isEdit=true
       this.$set(this.tableData,index,this.tableData[index])
       console.log(index)
@@ -238,15 +265,21 @@ export default {
       if(row.school_name==='外国语学院'){
         schools=2
       }
+      if (row.name===this.editFlag){
+        console.log(this.editFlag)
+        alert("课程名字不要一样，ok？");
+        console.log("名字不要一样，好吧")
+        return;
+      }
       axios.get("http://localhost:9000/updateCourse",{params:{id:row.id,name:row.name,hours:row.hours,schools:schools,imgUrl:this.imgUrl}}).then(res=>{
         this.tableData[index].imgUrl=this.imgUrl
+        axios.get("http://localhost:9000/getAllCourse").then(res=>{
+          this.tableData=res.data;
+          console.log(this.tableData)
+        })
         console.log(res)
       })
       row.isEdit=false
-      axios.get("http://localhost:9000/getAllCourse").then(res=>{
-        this.tableData=res.data;
-        console.log(this.tableData)
-      })
     },
     handleRemove(file, fileList) {
       this.fileList[0].url=''
