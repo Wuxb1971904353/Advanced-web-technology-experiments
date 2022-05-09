@@ -16,7 +16,7 @@ import java.util.Random;
 /*
 * 高级web技术实验二
 * */
-@RestController //用来表示这是一个对外的接口
+@RestController
 @CrossOrigin(allowCredentials="true",allowedHeaders = "*",methods = {})
 public class EditCourse {
     @RequestMapping("/getAllCourse")
