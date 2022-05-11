@@ -1,5 +1,8 @@
 package com.itheima.pojo;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Course implements Comparable<Course> {
     private int id;
     private String name;
@@ -46,7 +49,6 @@ public class Course implements Comparable<Course> {
     public void setImgUrl(String imgUrl) {
         this.imgUrl = imgUrl;
     }
-
     @Override
     public String toString() {
         return "Course{" +
@@ -57,7 +59,6 @@ public class Course implements Comparable<Course> {
                 ", imgUrl='" + imgUrl + '\'' +
                 '}';
     }
-
     @Override
     public int compareTo(Course c) {
         return this.getId() - c.getId();
