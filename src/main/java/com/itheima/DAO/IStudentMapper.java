@@ -1,4 +1,4 @@
-package com.itheima.dao;
+package com.itheima.DAO;
 
 import com.itheima.pojo.CCourse;
 import org.apache.ibatis.annotations.Insert;

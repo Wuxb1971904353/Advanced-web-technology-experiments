@@ -1,4 +1,4 @@
-package com.itheima.controller;
+package com.itheima.Controller;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;

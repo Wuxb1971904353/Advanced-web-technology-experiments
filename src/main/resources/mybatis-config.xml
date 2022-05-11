@@ -15,7 +15,7 @@
         </environment>
     </environments>
     <mappers>
-        <mapper class="com.itheima.dao.IStudentMapper"/>
-        <mapper class="com.itheima.dao.EditCourseMapper"/>
+        <mapper class="com.itheima.DAO.IStudentMapper"/>
+        <mapper class="com.itheima.DAO.EditCourseMapper"/>
     </mappers>
 </configuration>

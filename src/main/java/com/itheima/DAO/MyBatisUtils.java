@@ -1,4 +1,4 @@
-package com.itheima.dao;
+package com.itheima.DAO;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;

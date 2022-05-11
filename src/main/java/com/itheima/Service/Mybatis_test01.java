@@ -1,7 +1,7 @@
-package com.itheima.controller;
+package com.itheima.Service;
 
-import com.itheima.dao.IStudentMapper;
-import com.itheima.dao.MyBatisUtils;
+import com.itheima.DAO.IStudentMapper;
+import com.itheima.DAO.MyBatisUtils;
 import com.itheima.pojo.CCourse;
 import org.apache.ibatis.session.SqlSession;
 
