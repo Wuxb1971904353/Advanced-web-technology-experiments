@@ -2,7 +2,7 @@ package com.itheima.Service;
 
 import com.itheima.DAO.IStudentMapper;
 import com.itheima.DAO.MyBatisUtils;
-import com.itheima.pojo.CCourse;
+import com.itheima.POJO.CCourse;
 import org.apache.ibatis.session.SqlSession;
 
 import java.util.List;

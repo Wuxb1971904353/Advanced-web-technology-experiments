@@ -1,4 +1,4 @@
-package com.itheima.pojo;
+package com.itheima.POJO;
 
 public class CCourse {
 

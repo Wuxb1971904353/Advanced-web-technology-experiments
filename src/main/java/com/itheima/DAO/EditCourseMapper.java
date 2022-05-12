@@ -1,6 +1,6 @@
 package com.itheima.DAO;
 
-import com.itheima.pojo.Course;
+import com.itheima.POJO.Course;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;

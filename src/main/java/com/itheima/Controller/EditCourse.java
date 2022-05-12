@@ -1,6 +1,6 @@
 package com.itheima.Controller;
 
-import com.itheima.pojo.Course;
+import com.itheima.POJO.Course;
 import com.itheima.Service.EditCourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

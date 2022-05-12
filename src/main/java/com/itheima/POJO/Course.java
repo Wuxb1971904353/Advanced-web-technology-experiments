@@ -1,4 +1,4 @@
-package com.itheima.pojo;
+package com.itheima.POJO;
 
 import org.springframework.stereotype.Component;
 
